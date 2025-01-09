@@ -84,20 +84,22 @@ export default function TextForm(props) {
       <div className="container" style={{color: props.mode==='dark'?'white':'black'}}>
         <h1>{props.heading}</h1>
         <div className="mb-3">
-          <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='light'?'white':'grey'}} id="myBox" rows="8" />
+          <textarea className="form-control" value={text} onChange={handleOnChange} 
+          style={{backgroundColor: props.mode==='light'?'white':'#13466e', 
+          color: props.mode==='dark'?'white':'#042743'}} id="myBox" rows="8" />
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>UPPERCASE</button>
-        <button className="btn btn-primary mx-2" onClick={handleLoClick}>lowercase</button>
-        <button className="btn btn-primary mx-2" onClick={handleReverse}>Reverse</button>
-        <button className="btn btn-primary mx-2" onClick={handleToggleCase}>AlTeRnAtInG cAsE</button>
-        <button className="btn btn-primary mx-2" onClick={handleSentenceCase}>Sentence Case</button>
-        <button className="btn btn-primary mx-2" onClick={handleExtraSpace}>Extra Space</button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>copy to clipboard</button>
-        <button className="btn btn-primary mx-2" onClick={handleClearText}>clear</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>UPPERCASE</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleLoClick}>lowercase</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleReverse}>Reverse</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleToggleCase}>AlTeRnAtInG cAsE</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleSentenceCase}>Sentence Case</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleExtraSpace}>Extra Space</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleCopy}>copy to clipboard</button>
+        <button className="btn btn-primary mx-2 my-2" onClick={handleClearText}>clear</button>
       </div>
       <div className="container my-2" style={{color: props.mode==='dark'?'white':'black'}}>
         <h2>Your text summery</h2>
-        <p>Words count: {text.split(" ").length} | Characters count: {text.length} | Minutes count: {0.008 * text.split(" ").length} | Sentence count: {countSentences()}</p>
+        <p>Words count: {text.split(" ").filter((element)=>{return element.length!=0}).length} | Characters count: {text.length} | Minutes count: {0.008 * text.split(" ").filter((element)=>{return element.length!=0}).length} | Sentence count: {countSentences()}</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter something in the box preview it here."}</p>
       </div>
