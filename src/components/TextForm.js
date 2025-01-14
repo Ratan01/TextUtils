@@ -99,7 +99,7 @@ export default function TextForm(props) {
       </div>
       <div className="container my-2" style={{color: props.mode==='dark'?'white':'black'}}>
         <h2>Your text summery</h2>
-        <p>Words count: {text.split(" ").filter((element)=>{return element.length!=0}).length} | Characters count: {text.length} | Minutes count: {0.008 * text.split(" ").filter((element)=>{return element.length!=0}).length} | Sentence count: {countSentences()}</p>
+        <p>Words count: {text.split(/\s+/).filter((element)=>{return element.length!=0}).length} | Characters count: {text.length} | Minutes count: {0.008 * text.split(" ").filter((element)=>{return element.length!=0}).length} | Sentence count: {countSentences()}</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter something in the box preview it here."}</p>
       </div>
